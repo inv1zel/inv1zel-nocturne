@@ -1,0 +1,38 @@
+:root {
+  /* colour */
+  --c-bg: #080808;
+  --c-surface: #111111;
+  --c-text: #e8e5e0;
+  --c-muted: #858585;
+  --c-dim: #4a4a4a;
+  --c-line: rgba(255, 255, 255, 0.16);
+  --c-line-soft: rgba(255, 255, 255, 0.08);
+
+  /* type */
+  --f-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --f-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --t-micro: clamp(0.625rem, 0.6rem + 0.1vw, 0.6875rem);
+  --t-small: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+  --t-body: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
+  --t-lead: clamp(1.25rem, 1.05rem + 0.8vw, 1.75rem);
+  --t-h3: clamp(1.75rem, 1.3rem + 1.8vw, 3rem);
+  --t-h2: clamp(2.75rem, 1.6rem + 5.4vw, 7.5rem);
+  --t-h1: clamp(3.5rem, 0.6rem + 14.6vw, 19rem);
+
+  --track-wide: 0.32em;
+  --track-mid: 0.16em;
+
+  /* space */
+  --gutter: clamp(1rem, 0.6rem + 2vw, 2.5rem);
+  --section: clamp(6rem, 4rem + 9vw, 13rem);
+  --header-h: 4.5rem;
+
+  /* motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-io: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* scene intensity, lowered by the closing colophon */
+  --intensity: 1;
+}

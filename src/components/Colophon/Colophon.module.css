@@ -1,0 +1,64 @@
+.section {
+  position: relative; isolation: isolate; overflow: hidden;
+  padding: var(--section) var(--gutter) clamp(3rem, 6vw, 5rem);
+}
+.bg { position: absolute; inset: 0; z-index: -1; }
+.bgInner { position: absolute; inset: 0; opacity: 0; }
+.bgInner::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, var(--c-bg) 0%, rgba(8, 8, 8, 0.72) 35%, rgba(8, 8, 8, 0.86) 70%, var(--c-bg) 100%);
+}
+.head { display: flex; align-items: center; gap: 1.25rem; margin-bottom: clamp(4rem, 8vw, 8rem); }
+.headRule { flex: 1; height: 1px; background: var(--c-line-soft); }
+
+.title {
+  position: relative;
+  font: 300 clamp(3rem, 1.4rem + 7.6vw, 10.5rem) / 0.9 var(--f-display);
+  text-transform: uppercase; letter-spacing: -0.02em;
+}
+.title > :nth-child(2) { padding-left: 16vw; }
+.title > :nth-child(3) { text-align: right; }
+.title em { font-style: italic; }
+.sparkle { position: absolute; width: 22px; right: 22%; margin-top: -1rem; color: var(--c-text); opacity: 0.8; }
+
+.grid {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gutter);
+  margin-top: clamp(4rem, 9vw, 9rem); align-items: start;
+}
+.note { grid-column: 1 / 6; display: grid; gap: 1.25rem; justify-items: start; }
+.lead { font: 300 var(--t-lead) / 1.3 var(--f-display); max-width: 30rem; }
+.body { color: var(--c-muted); font-size: var(--t-small); line-height: 1.75; max-width: 28rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.5rem 2.5rem; margin-top: 1rem; }
+.action {
+  display: inline-flex; align-items: center; gap: 0.9rem; min-height: 44px;
+  font: 400 var(--t-micro) / 1 var(--f-mono); letter-spacing: var(--track-mid); text-transform: uppercase;
+  color: var(--c-text);
+}
+.action svg { width: 30px; height: 10px; transition: transform 0.7s var(--ease); }
+.action svg[viewBox='0 0 10 36'] { width: 10px; height: 22px; }
+.action:hover svg[viewBox='0 0 36 10'], .action:focus-visible svg[viewBox='0 0 36 10'] { transform: translateX(8px); }
+.action:hover svg[viewBox='0 0 10 36'], .action:focus-visible svg[viewBox='0 0 10 36'] { transform: translateY(-5px); }
+
+.facts { grid-column: 7 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem var(--gutter); }
+.fact { position: relative; padding-top: 1rem; display: grid; gap: 0.45rem; align-content: start; min-width: 0; }
+.fact dd { font: 300 1.2rem / 1.35 var(--f-display); }
+.factRule { position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--c-line); transform-origin: left; }
+
+.sign {
+  margin-top: clamp(5rem, 10vw, 9rem);
+  font: 300 min(17rem, calc((100vw - 2 * var(--gutter)) / 5.5)) / 0.8 var(--f-display);
+  letter-spacing: -0.02em; text-align: center; color: transparent;
+  -webkit-text-stroke: 1px var(--c-line);
+  user-select: none;
+}
+
+@media (max-width: 860px) {
+  .note, .facts { grid-column: 1 / -1; }
+  .facts { margin-top: 2.5rem; }
+  .title { font-size: 9.4vw; }
+  .title > :nth-child(2) { padding-left: 8vw; }
+  .sparkle { right: 12%; }
+}
+@media (max-width: 480px) {
+  .facts { grid-template-columns: 1fr; gap: 1.5rem; }
+}
